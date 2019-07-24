@@ -1,0 +1,8 @@
+---
+# tasks file for roles/updates
+- name: update all packages on RHEL hosts
+  yum: name=* state=latest
+  when: ansible_os_family == 'RedHat'
+- name: update all packages on debian hosts
+  apt: name=* state=latest
+  when: ansible_os_family == 'Debian'
